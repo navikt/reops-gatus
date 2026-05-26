@@ -11,7 +11,7 @@ alerting:
       {
         "type": "event",
         "payload": {
-          "website": "[ENDPOINT_NAME]",
+          "website": "96a8b610-7391-45f5-9253-84bee2333669",
           "screen": "1728x1117",
           "language": "en-US",
           "title": "reops-health-check",
@@ -22,10 +22,12 @@ alerting:
       }
 
 endpoints:
-  - name: 96a8b610-7391-45f5-9253-84bee2333669
+  - name: reops-health-check
     group: external
     url: https://reops-event-proxy.ekstern.dev.nav.no/api/send
+    method: POST
     headers:
+      Content-Type: application/json
       User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
     interval: 1m
     conditions:
