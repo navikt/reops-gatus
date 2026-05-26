@@ -1,0 +1,33 @@
+name: "Deploy Dev"
+run-name: "Deploy Dev - ${{ github.sha }}"
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    name: Deploy to dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set image and version
+        id: vars
+        run: |
+          echo "image=ghcr.io/${{ github.repository }}:${{ github.sha }}" >> "$GITHUB_OUTPUT"
+          echo "version=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+      - name: Deploy to NAIS dev
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: dev-gcp
+          RESOURCE: .nais/nais-dev.yaml
+          VAR: image=${{ steps.vars.outputs.image }},version=${{ steps.vars.outputs.version }}
+      - name: Deployment output
+        run: |
+          echo "image=${{ steps.vars.outputs.image }}"
+          echo "version=${{ steps.vars.outputs.version }}"

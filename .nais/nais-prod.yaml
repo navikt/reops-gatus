@@ -1,0 +1,25 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: reops-gatus
+  namespace: reops
+  labels:
+    team: reops
+spec:
+  image: {{ image }}
+  port: 8080
+  ingresses:
+    - https://reops-gatus.nav.no
+  resources:
+    requests:
+      cpu: 20m
+      memory: 64Mi
+    limits:
+      cpu: 100m
+      memory: 128Mi
+  env:
+    - name: GATUS_LOG_LEVEL
+      value: WARN
+  replicas:
+    min: 1
+    max: 1

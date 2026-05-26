@@ -1,0 +1,31 @@
+name: "Deploy Prod (Manual)"
+run-name: "Deploy Prod (Manual) - ${{ github.event.inputs.image }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "Image to deploy"
+        required: true
+        type: string
+
+concurrency:
+  group: deploy-prod-manual
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy-prod:
+    name: Deploy to prod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Deploy to NAIS prod
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: .nais/nais-prod.yaml
+          VAR: image=${{ github.event.inputs.image }}
