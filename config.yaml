@@ -29,7 +29,7 @@ endpoints:
     url: https://reops-event-proxy.ekstern.dev.nav.no/api/send
     interval: 1m
     conditions:
-      - "[STATUS] == 200"
+      - "[STATUS] == any(200, 201)"
     alerts:
       - type: custom
         description: reops-health-check failed
