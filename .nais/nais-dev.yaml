@@ -17,6 +17,10 @@ spec:
     limits:
       cpu: 100m
       memory: 128Mi
+  accessPolicy:
+    outbound:
+      external:
+        - host: reops-event-proxy.ekstern.dev.nav.no
   env:
     - name: GATUS_LOG_LEVEL
       value: WARN
