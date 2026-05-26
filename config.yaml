@@ -26,7 +26,7 @@ alerting:
 endpoints:
   - name: 96a8b610-7391-45f5-9253-84bee2333669
     group: external
-    url: https://reops-event-proxy.ekstern.dev.nav.no
+    url: https://reops-event-proxy.ekstern.dev.nav.no/api/send
     interval: 1m
     conditions:
       - "[STATUS] == 200"
