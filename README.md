@@ -1,6 +1,6 @@
 # Reops Gatus
 
-Minimal Gatus setup with low memory footprint.
+Minimal Gatus setup with low memory footprint..
 
 ## Local run
 
