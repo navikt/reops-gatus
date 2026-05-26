@@ -17,7 +17,7 @@ alerting:
           "title": "reops-health-check",
           "hostname": "reops-health-check.ansatt.dev.nav.no",
           "url": "[ENDPOINT_URL]",
-          "referrer": "",
+          "referrer": ""
         }
       }
 
@@ -29,6 +29,19 @@ endpoints:
     headers:
       Content-Type: application/json
       User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
+    body: |
+      {
+        "type": "event",
+        "payload": {
+          "website": "reops-health-check",
+          "screen": "1728x1117",
+          "language": "en-US",
+          "title": "reops-health-check",
+          "hostname": "reops-health-check.ansatt.dev.nav.no",
+          "url": "https://reops-event-proxy.ekstern.dev.nav.no/api/send",
+          "referrer": ""
+        }
+      }
     interval: 1m
     conditions:
       - "[STATUS] == any(200, 201)"
