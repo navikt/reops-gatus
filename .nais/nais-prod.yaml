@@ -2,9 +2,9 @@ apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
   name: reops-gatus
-  namespace: reops
+  namespace: team-researchops
   labels:
-    team: reops
+    team: team-researchops
 spec:
   image: {{ image }}
   port: 8080
