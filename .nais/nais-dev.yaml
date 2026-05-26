@@ -21,6 +21,7 @@ spec:
     outbound:
       external:
         - host: reops-event-proxy.ekstern.dev.nav.no
+        - host: www.nav.no
       rules:
         - application: reops-event-proxy
   env:
