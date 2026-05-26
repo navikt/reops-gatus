@@ -22,54 +22,54 @@ alerting:
       }
 
 endpoints:
-  - name: reops-health-check
-    group: external
-    url: https://reops-event-proxy.ekstern.dev.nav.no/api/send
-    method: POST
-    headers:
-      Content-Type: application/json
-      User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
-    body: |
-      {
-        "type": "event",
-        "payload": {
-          "website": "96a8b610-7391-45f5-9253-84bee2333669",
-          "screen": "1728x1117",
-          "language": "en-US",
-          "title": "reops-health-check",
-          "hostname": "reops-health-check.ansatt.dev.nav.no",
-          "url": "/[TIMESTAMP]",
-          "referrer": ""
-        }
-      }
-    interval: 1m
-    conditions:
-      - "[STATUS] == any(200, 201)"
-    alerts:
-      - type: custom
-        description: reops-health-check failed
-        send-on-resolved: true
-  - name: www.nav.no
-    group: external
-    url: https://www.nav.no/
-    headers:
-      User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
-    interval: 1m
-    conditions:
-      - "[STATUS] < 400"
-    alerts:
-      - type: custom
-        description: reops-health-check failed
-        send-on-resolved: true
-  - name: felgen.ansatt.nav.no
-    group: external
-    url: https://felgen.ansatt.nav.no/
-    headers:
-      User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
-    interval: 1m
-    conditions:
-      - "[STATUS] < 400"
-    alerts:
-      - type: custom
-        description: reops-health-check failed
-        send-on-resolved: true
+  # - name: reops-health-check
+  #   group: external
+  #   url: https://reops-event-proxy.ekstern.dev.nav.no/api/send
+  #   method: POST
+  #   headers:
+  #     Content-Type: application/json
+  #     User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
+  #   body: |
+  #     {
+  #       "type": "event",
+  #       "payload": {
+  #         "website": "96a8b610-7391-45f5-9253-84bee2333669",
+  #         "screen": "1728x1117",
+  #         "language": "en-US",
+  #         "title": "reops-health-check",
+  #         "hostname": "reops-health-check.ansatt.dev.nav.no",
+  #         "url": "/[TIMESTAMP]",
+  #         "referrer": ""
+  #       }
+  #     }
+  #   interval: 1m
+  #   conditions:
+  #     - "[STATUS] == any(200, 201)"
+  #   alerts:
+  #     - type: custom
+  #       description: reops-health-check failed
+  #       send-on-resolved: true
+  # - name: www.nav.no
+  #   group: external
+  #   url: https://www.nav.no/
+  #   headers:
+  #     User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
+  #   interval: 1m
+  #   conditions:
+  #     - "[STATUS] < 400"
+  #   alerts:
+  #     - type: custom
+  #       description: reops-health-check failed
+  #       send-on-resolved: true
+  # - name: felgen.ansatt.nav.no
+  #   group: external
+  #   url: https://felgen.ansatt.nav.no/
+  #   headers:
+  #     User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
+  #   interval: 1m
+  #   conditions:
+  #     - "[STATUS] < 400"
+  #   alerts:
+  #     - type: custom
+  #       description: reops-health-check failed
+  #       send-on-resolved: true
