@@ -38,7 +38,7 @@ endpoints:
           "language": "en-US",
           "title": "reops-health-check",
           "hostname": "reops-health-check.ansatt.dev.nav.no",
-          "url": "/smile",
+          "url": "/[TIMESTAMP]",
           "referrer": ""
         }
       }
