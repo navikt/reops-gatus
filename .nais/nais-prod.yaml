@@ -21,6 +21,7 @@ spec:
     outbound:
       external:
         - host: reops-event-proxy.ekstern.nav.no
+        - application: reops-event-proxy
   env:
     - name: GATUS_LOG_LEVEL
       value: WARN
