@@ -38,7 +38,7 @@ endpoints:
           "language": "en-US",
           "title": "reops-health-check",
           "hostname": "reops-health-check.ansatt.dev.nav.no",
-          "url": "https://reops-event-proxy.ekstern.dev.nav.no/api/send",
+          "url": "/smile",
           "referrer": ""
         }
       }
