@@ -46,3 +46,15 @@ endpoints:
       - type: custom
         description: reops-health-check failed
         send-on-resolved: true
+  - name: felgen.ansatt.nav.no
+    group: external
+    url: https://felgen.ansatt.nav.no/
+    headers:
+      User-Agent: "Mozilla/5.0 (compatible; reops-monitor/1.0)"
+    interval: 1m
+    conditions:
+      - "[STATUS] < 400"
+    alerts:
+      - type: custom
+        description: reops-health-check failed
+        send-on-resolved: true

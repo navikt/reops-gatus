@@ -22,6 +22,7 @@ spec:
       external:
         - host: reops-event-proxy.ekstern.nav.no
         - host: www.nav.no
+        - host: felgen.ansatt.nav.no
       rules:
         - application: reops-event-proxy
   env:
