@@ -20,6 +20,10 @@ Edit `config.yaml` and add your own endpoints.
 - Dev: `.nais/nais-dev.yaml`
 - Prod: `.nais/nais-prod.yaml`
 
+The dev workflow builds and pushes the container with `nais/docker-build-push@v0`.
+NAIS will reject images from registries like `ghcr.io`, so deploy images must come
+from the registry returned by that action.
+
 The manifests are intentionally minimal and set low memory:
 
 - request: `64Mi`

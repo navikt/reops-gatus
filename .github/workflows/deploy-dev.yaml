@@ -7,6 +7,7 @@ on:
       - main
 
 permissions:
+  actions: read
   contents: read
   id-token: write
 
@@ -16,18 +17,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set image and version
-        id: vars
-        run: |
-          echo "image=ghcr.io/${{ github.repository }}:${{ github.sha }}" >> "$GITHUB_OUTPUT"
-          echo "version=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+      - name: Build and push image
+        id: docker-push
+        uses: nais/docker-build-push@v0
+        with:
+          team: team-researchops
       - name: Deploy to NAIS dev
         uses: nais/deploy/actions/deploy@v2
         env:
           CLUSTER: dev-gcp
           RESOURCE: .nais/nais-dev.yaml
-          VAR: image=${{ steps.vars.outputs.image }},version=${{ steps.vars.outputs.version }}
+          VAR: image=${{ steps.docker-push.outputs.image }}
       - name: Deployment output
         run: |
-          echo "image=${{ steps.vars.outputs.image }}"
-          echo "version=${{ steps.vars.outputs.version }}"
+          echo "Use this image for prod deploys:"
+          echo "image=${{ steps.docker-push.outputs.image }}"
