@@ -33,7 +33,7 @@ endpoints:
       {
         "type": "event",
         "payload": {
-          "website": "reops-health-check",
+          "website": "96a8b610-7391-45f5-9253-84bee2333669",
           "screen": "1728x1117",
           "language": "en-US",
           "title": "reops-health-check",
