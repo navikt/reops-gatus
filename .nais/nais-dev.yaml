@@ -9,7 +9,7 @@ spec:
   image: {{ image }}
   port: 8080
   ingresses:
-    - https://reops-gatus.dev.nav.no
+    - https://reops-gatus.ansatt.dev.nav.no
   resources:
     requests:
       cpu: 20m
