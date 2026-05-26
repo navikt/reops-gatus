@@ -19,7 +19,8 @@ alerting:
           "url": "[ENDPOINT_URL]",
           "referrer": "",
           "status": "[ALERT_TRIGGERED_OR_RESOLVED]",
-          "errors": "[RESULT_ERRORS]"
+          "errors": "[RESULT_ERRORS]",
+          "conditions": "[RESULT_CONDITIONS]"
         }
       }
 
