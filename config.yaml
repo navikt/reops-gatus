@@ -15,7 +15,7 @@ alerting:
           "screen": "1728x1117",
           "language": "en-US",
           "title": "reops-health-check",
-          "hostname": "reops-health-check",
+          "hostname": "reops-health-check.ansatt.dev.nav.no",
           "url": "[ENDPOINT_URL]",
           "referrer": "",
         }
