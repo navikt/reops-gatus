@@ -1,6 +1,26 @@
 web:
   port: 8080
 
+alerting:
+  custom:
+    url: ${GATUS_EVENT_WEBHOOK_URL}
+    method: POST
+    headers:
+      Content-Type: application/json
+    body: |
+      {
+        "type": "event",
+        "payload": {
+          "website": "[ENDPOINT_NAME]",
+          "screen": "1728x1117",
+          "language": "en-US",
+          "title": "reops-health-check",
+          "hostname": "reops-health-check",
+          "url": "[ENDPOINT_URL]",
+          "referrer": "",
+        }
+      }
+
 endpoints:
   - name: 96a8b610-7391-45f5-9253-84bee2333669
     group: external
@@ -10,3 +30,7 @@ endpoints:
     interval: 1m
     conditions:
       - "[STATUS] == any(200, 201)"
+    alerts:
+      - type: custom
+        description: reops-health-check failed
+        send-on-resolved: true
